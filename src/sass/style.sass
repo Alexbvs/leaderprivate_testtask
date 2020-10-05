@@ -1,0 +1,681 @@
+/*Reset*/
+* 
+    padding: 0
+    margin: 0
+    border: 0
+*,*:before,*:after 
+    -moz-box-sizing: border-box
+    -webkit-box-sizing: border-box
+    box-sizing: border-box
+a:focus,a:active 
+    outline: none
+button:focus,button:active 
+    outline: none
+nav,footer,header,aside 
+    display: block
+html,body 
+    height: 100%
+    width: 100%
+    font-size: 100%
+    line-height: 1
+    font-size: 14px
+    -ms-text-size-adjust: 100%
+    -moz-text-size-adjust: 100%
+    -webkit-text-size-adjust: 100%
+input,button,textarea 
+    font-family: inherit
+input 
+    &::-ms-clear 
+        display: none
+button 
+    cursor: pointer
+    &::-moz-focus-inner 
+        padding: 0
+        border: 0
+a, a:visited 
+    text-decoration: none
+a 
+    &:hover 
+        text-decoration: none
+ul 
+    li 
+        list-style: none
+img 
+    vertical-align: top
+h1,h2,h3,h4,h5,h6 
+    font-size: inherit
+    font-weight: 400
+select:focus
+    outline: none
+
+/*Fonts*/     
+@mixin font($font_name, $file_name, $weight, $style) 
+    @font-face 
+        font-family: $font_name
+        font-display: swap
+        src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2")
+        font-weight: #{$weight}
+        font-style: #{$style}
+  
+@import fonts
+@import vars
+
+/*Start custom*/
+body 
+    min-width: 320px
+    overflow-x: hidden
+    font-family: 'Montserrat-Regular', sans-serif
+ 
+//container start
+.container
+    width: 1170px
+    margin: 0 auto
+
+
+       
+// header start
+.header
+    background-color: #191919
+
+    &__inner
+        min-height: 40px
+        display: flex
+        align-items: center
+        justify-content: space-between
+
+    &__networks
+        display: flex
+        
+        
+    &__social
+        background-image: url(/img/social.png)
+        background-repeat: no-repeat
+        height: 16px
+        width: 28px
+        display: inline-block
+
+        &.fb
+            background-position: 0 top
+        &.tv
+            background-position: -28px top
+        &.pn
+            background-position: -56px top
+        &.vk
+            background-position: -84px top
+        &.go
+            background-position: -112px top
+        &.be
+            background-position: -140px top
+        &.wi
+            background-position: -168px top
+        &.ins
+            background-position: -196px top
+
+    &__sign
+        display: flex
+        align-items: center
+        min-height: 20px
+
+    &__signin 
+        margin-right: 30px
+        img
+            margin-right: 7px
+
+        a
+            text-transform: uppercase
+            color: #B4B4B4
+            text-align: center
+            line-height: 17px
+            @extend %mont-400
+            font-size: 16px
+        
+        &::after
+            content: ''
+            width: 1px
+            height: 20px
+            position: absolute
+            margin-left: 15px
+            background-color:#B4B4B4
+    
+    &__lang
+        select
+            text-transform: uppercase
+            color: #B4B4B4
+            text-align: center
+            line-height: 17px
+            background-color: transparent
+            border: none
+            @extend %mont-400
+            font-size: 16px
+
+            option
+                background-color: #000
+
+
+        img
+            margin-right: 7px
+            margin-top: 2px
+
+
+//head start
+.head
+    background-image: url(/img/head.jpeg)
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
+    min-height: 800px
+    position: relative
+    z-index: 1
+
+.s-overlay
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: rgb(33, 33, 33)
+    opacity: 0.871
+    z-index: -1
+
+.head__main_menu
+    display: flex
+
+.logo
+    img
+        margin-top: 35px
+        margin-right: 130px
+
+
+.menu
+    display: flex
+    flex-grow: 1
+    margin-top: 35px
+    text-align: center
+    line-height: 30px
+    
+
+    &__item
+        margin: 0 0 0 30px 
+     
+    
+    &__title
+        cursor: pointer
+        text-transform: uppercase
+        color: #fff
+        padding-bottom: 25px
+        border-bottom: 5px solid transparent
+        @extend %mont-700
+        font-size: 14px
+        &:hover:not(.no-hover)
+            border-bottom: 5px solid #FF4081
+
+        span
+            position: relative
+            margin-left: 10px
+
+            &::before
+                content: ''    
+                width: 6px
+                height: 1px
+                background-color: #fff
+                position: absolute
+                top: 8px
+                transform: rotate(40deg)
+                left: 0
+                transition: all 0.3s ease 0s
+
+            &::after
+                content: ''    
+                width: 6px
+                height: 1px
+                background-color: #fff
+                position: absolute
+                top: 8px
+                transform: rotate(-40deg)
+                left: 5px
+                transition: all 0.3s ease 0s
+
+    &__title 
+        &.active
+            span
+                &::before
+                    background-color: #FF4081
+                    transform: rotate(-40deg)
+                &::after
+                    background-color: #FF4081
+                    transform: rotate(40deg)
+
+
+    &__ref
+        display: none
+        position: absolute
+        a
+            display: block
+            color: #fff
+
+
+.icons
+
+    &__search
+        position: relative
+        img
+            margin: 40px 12px
+        &::after
+            content: ''
+            width: 1px
+            height: 20px
+            position: absolute
+            margin-top: 40px
+            background-color:#B4B4B4
+
+    &__heart
+        position: relative
+        img
+            margin: 40px 12px
+        &::after
+            content: ''
+            width: 1px
+            height: 20px
+            position: absolute
+            margin-top: 40px
+            background-color:#B4B4B4
+    &__shopping
+        position: relative
+        img
+            margin: 40px 20px 35px 12px
+    
+    
+//top-slider start
+.top-slider
+    top: 160px
+    margin-bottom: 68px
+    
+    
+    &__item
+        margin: 0 auto
+      
+    &__h4
+        color: #fff
+        margin: 0 auto 30px
+        max-width: 180px
+        text-transform: uppercase
+        @extend %mont-400
+        font-size: 28px
+
+    &__title
+        @extend %mont-900
+        font-size: 42px
+        line-height: 1.2
+        color: #fff
+        margin: 0 auto 38px
+        max-width: 1045px
+        text-transform: uppercase
+        text-align: center
+
+
+    &__btn
+        border-radius: 22px
+        background-color: rgb(48, 63, 159)
+        box-shadow: 0px 17px 24px 0px rgba(48, 63, 159, 0.2)
+        width: 170px
+        height: 45px
+        @extend %mont-400
+        font-size: 22px
+        line-height: 1.5
+        color: #fff
+        text-transform: uppercase
+        margin: 0 auto 80px
+        display: flex
+        justify-content: center
+        align-items: center
+        transition: all 0.3s ease 0s
+
+        &:hover
+            background-color: #021862
+            
+    &__autor
+        min-width: 52px
+        margin: 0 auto 20px
+        display: flex
+        justify-content: center
+        align-items: center
+
+    &__h7
+        min-width: 100px
+        margin: 0 auto 12px
+        display: flex
+        align-items: center
+        justify-content: center
+        font-size: 14px
+        @extend %mont-700
+        color: #fff
+
+    &__data
+        color: #8e8f8f
+        margin: 0 auto 36px
+        min-width: 130px
+        display: flex
+        align-items: center
+        justify-content: center
+        font-size: 12px
+        @extend %mont-400
+
+        span
+            margin-left: 10px
+
+    &__comments
+        display: flex
+        align-items: center
+        justify-content: center
+        min-width: 300px
+        margin: 0 auto
+
+        &_text
+            color: #979797
+            font-size: 12px
+            @extend %mont-400
+
+            span
+                margin-left: 4px
+
+            span.comm
+                margin-right: 30px
+
+        img
+            margin-right: 8px
+
+.slick-arrow
+    background-color: transparent
+
+.slick-prev
+    position: absolute
+    left: -100px
+    top: 20%
+
+.slick-next
+    position: absolute
+    right: -100px
+    top: 20%
+
+//head end
+
+
+//section sort start
+.sort
+    background-color: #fff
+    height: 65px
+    text-align: left
+
+    &__title
+        @extend %mont-700
+        font-size: 16px
+        line-height: 1.6
+        text-transform: uppercase
+        margin-right: 5px
+
+    &__inner
+        display: flex
+        align-items: center
+
+
+    &__btn
+        margin: 12px 0 12px 15px
+        padding: 10px 28px
+        background-color: rgb(245, 245, 245)
+        color: #000
+        @extend %mont-400
+        font-size: 16px
+        border-radius: 22px
+        text-transform: uppercase
+        border: 1px solid transparent
+        transition: all 0.3s ease 0s
+
+        &:hover
+            border: 1px solid #3F51B5
+            color: #3F51B5
+            background-color: #fff
+
+
+//section sort end
+
+//section main start
+.top-inner
+    padding: 20px
+    background-color: #fff
+
+.main
+    background-color: #F5F5F5
+
+    &__inner-left
+        width: 820px
+        padding-top: 30px
+
+    &__top
+    
+        &_title
+            text-align: left
+            color: #000
+            font-size: 18px
+            @extend %mont-700
+
+        &_text
+            text-align: justify
+            color: #000
+            font-size: 17px
+            @extend %open-400
+            margin-top: 14px
+            line-height: 1.62
+            
+        &_info
+            background-color: #fff
+            margin-top: 2px
+            padding: 20px
+            display: flex
+            position: relative
+
+            &_img
+                width: 50px
+                height: 50px
+
+            &_all
+                margin-left: 10px
+
+            &_autor
+                color: #000
+                @extend %mont-400
+                font-size: 14px
+                margin: 10px 0
+
+            &_date
+                color: #212121
+                @extend %mont-400
+                font-size: 12px
+                margin: 10px 0
+
+                span
+                    margin-left: 10px
+
+            &_more
+                position: absolute
+                right: 20px
+                top: 50%
+
+    &__horizont
+        margin-top: 20px
+        display: flex
+
+        &_inner_about
+            padding-left: 20px
+            background-color: #fff
+            min-width: 550px
+
+        &_title
+            text-align: left
+            color: #000
+            font-size: 16px
+            @extend %mont-700
+            padding-top: 15px
+
+        &_text
+            text-align: justify
+            color: #000
+            font-size: 14px
+            @extend %open-400
+            margin-top: 14px
+            line-height: 1.62
+            padding-right: 20px
+            
+        &_info
+            background-color: #fff
+            margin-top: 2px
+            padding: 20px
+            display: flex
+            position: relative
+
+            &_img
+                width: 50px
+                height: 50px
+
+            &_all
+                margin-left: 10px
+
+            &_autor
+                color: #000
+                @extend %mont-400
+                font-size: 14px
+                margin: 10px 0
+
+            &_date
+                color: #212121
+                @extend %mont-400
+                font-size: 12px
+                margin: 10px 0
+
+                span
+                    margin-left: 10px
+
+            &_more
+                position: absolute
+                right: 20px
+                top: 50%
+
+    &__vert
+        display: flex
+        justify-content: space-between
+
+    &__vertical
+        margin-top: 20px
+        max-width: 268px
+
+        &_inner
+            background-color: #fff
+            padding: 20px
+
+        &_title
+            text-align: left
+            color: #000
+            font-size: 14px
+            @extend %mont-700
+
+        &_text
+            text-align: justify
+            color: #000
+            font-size: 14px
+            @extend %open-400
+            margin-top: 14px
+            line-height: 1.62
+            
+        &_info
+            background-color: #fff
+            margin-top: 2px
+            padding: 24px
+            display: flex
+            position: relative
+
+            &_img
+                width: 50px
+                height: 50px
+
+            &_all
+                margin-left: 10px
+
+            &_autor
+                color: #000
+                @extend %mont-400
+                font-size: 14px
+                margin: 10px 0
+
+            &_date
+                color: #212121
+                @extend %mont-400
+                font-size: 12px
+                margin: 10px 0
+
+                span
+                    margin-left: 10px
+
+            &_more
+                position: absolute
+                right: 20px
+                top: 50%
+
+    &__bott
+        display: flex
+        justify-content: space-between
+
+    &__bottom
+        margin-top: 20px
+        max-width: 400px
+
+        &_inner
+            background-color: #fff
+            padding: 20px
+
+        &_title
+            text-align: left
+            color: #000
+            font-size: 18px
+            @extend %mont-700
+
+        &_text
+            text-align: justify
+            color: #000
+            font-size: 15px
+            @extend %open-400
+            margin-top: 14px
+            line-height: 1.62
+            
+        &_info
+            background-color: #fff
+            margin-top: 2px
+            padding: 24px
+            display: flex
+            position: relative
+
+            &_img
+                width: 50px
+                height: 50px
+
+            &_all
+                margin-left: 10px
+
+            &_autor
+                color: #000
+                @extend %mont-400
+                font-size: 14px
+                margin: 10px 0
+
+            &_date
+                color: #212121
+                @extend %mont-400
+                font-size: 12px
+                margin: 10px 0
+
+                span
+                    margin-left: 10px
+
+            &_more
+                position: absolute
+                right: 20px
+                top: 50%
+
